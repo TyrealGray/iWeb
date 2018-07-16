@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>iWeb</title>
+</head>
+
+<body style="overflow: hidden">
+
+<div class="container-fluid" style="margin: 5px; right:0;">
+    <h1>iWeb</h1>
+    <input id="templatePathInput" type="file" webkitdirectory directory multiple/>
+    <button id="saveButton" type="button" class="btn btn-primary" style="display: none">Save</button>
+        <button id="closeButton" type="button" class="btn btn-danger" onclick="nwWinGUI.close();">Close</button>
+</div>
+
+<div class="container-fluid" style='height: 90%;'>
+    <iframe id="templateView" height="0" width="0"></iframe>
+</div>
+
+<div id='ModalContainer' class="container-fluid" style='position: absolute;'></div>
+
+<div id='DevConsoleContainer' class="container-fluid" style='position: absolute;bottom: 0;'></div>
+
+<script type="text/javascript" src="src/nwSystem/nodeSystemModule.js" charset="utf-8"></script>
+<script type="text/javascript" src="src/nwSystem/nwSystemModule.js" charset="utf-8"></script>
+
+<script type="text/javascript" src="iWeb.js" charset="utf-8"></script>
+</body>
+</html>

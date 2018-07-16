@@ -59,3 +59,14 @@ typings/
 
 # next.js build output
 .next
+
+＃dist
+iWeb.js
+dist/*
+
+#nwjs
+nwjs-*-win-x64/*
+nwjs-*-osx-x64/*
+
+#ide
+.idea/*
