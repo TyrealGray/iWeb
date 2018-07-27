@@ -1,4 +1,7 @@
 # iWeb
+
+![iweb](https://github.com/TyrealGray/iWeb/blob/master/iweb_screenshot.gif)
+
 ### How to use:
 
 1.download some free website template from [startbootstrap.com](https://startbootstrap.com/)
