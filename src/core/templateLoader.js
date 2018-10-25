@@ -60,24 +60,25 @@ class TemplateLoader {
 
 		const aTags = iframeDocument.querySelectorAll('a');
 		for (const aTag of aTags) {
-			aTag.addEventListener('click', () => {
-
-				$('#ModalContainer').html(T_modalTemplate());
-
-				const aTagContentInput = document.getElementById('aTagContentInput');
-
-				if(aTagContentInput && aTagContentInput instanceof HTMLInputElement){
-
-					aTagContentInput.value = aTag.innerHTML;
-
-					aTagContentInput.addEventListener('change', () => {
-						aTag.innerHTML = aTagContentInput.value;
-					});
-
-					$('#modalCenter').modal();
-				}
-			});
+			aTag.addEventListener('click', this._aTageClickListener);
 		}
+	}
+
+	_aTageClickListener(e) {
+        $('#ModalContainer').html(T_modalTemplate());
+
+        const aTagContentInput = document.getElementById('aTagContentInput');
+
+        if(aTagContentInput && aTagContentInput instanceof HTMLInputElement){
+
+            aTagContentInput.value = e.target.innerHTML;
+
+            aTagContentInput.addEventListener('change', () => {
+                e.target.innerHTML = aTagContentInput.value;
+            });
+
+            $('#modalCenter').modal();
+        }
 	}
 
 	/**
@@ -98,6 +99,12 @@ class TemplateLoader {
 
 		saveButton.addEventListener('click', () => {
 			iframeDocument.body.removeAttribute('contenteditable');
+
+            const aTags = iframeDocument.querySelectorAll('a');
+            for (const aTag of aTags) {
+                aTag.removeEventListener('click', this._aTageClickListener);
+            }
+
 			this._saveChanges(iframeDocument);
 		});
 	}
